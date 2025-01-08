@@ -12,10 +12,20 @@ Quick explanation of respository structure.
 
 scripts/
 
+    split_pipe/ -> Code for running ParseBiosciences split-pipe to generated annotated bam files.
+
+        split_pipe_10k_cell.sh -> Runs split-pipe with Sun-gride-engine (SGE) on the 10k cell library paired-end fastq 
+                                    files.
+
+        split_pipe_500_cell.sh -> Runs split-pipe with Sun-gride-engine (SGE) on the 500 cell library paired-end fastq 
+                                    files.
+
     run_sheriff/ -> Code which ran Sheriff, not that used a slightly different API and was named superb_count.
 
+        blacklist.ipynb -> Code for generating blacklist regions for calling canonical edit sites with Sheriff.
+
         # 10k cell library processing
-        superb_count_multi.sh -> Sun-gride-engine (SGE) script that processed the split-pipe annotated bam for 10k library, 
+        superb_count_multi.sh -> SGE script that processed the split-pipe annotated bam for 10k library, 
                                 which had been split by chromosome, and also wrote out the output by chromosome. 
 
         combine_results.py -> Used to combine all of the count matrices and bam files for the processing across 
